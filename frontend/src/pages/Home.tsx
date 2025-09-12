@@ -1,0 +1,77 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Star, Download, Users, TrendingUp } from 'lucide-react';
+
+// Components
+import { HeroSection } from '../components/home/HeroSection';
+import { CategoryGrid } from '../components/home/CategoryGrid';
+import { FeaturedApps } from '../components/home/FeaturedApps';
+import { StatsSection } from '../components/home/StatsSection';
+
+export const Home: React.FC = () => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="container mx-auto px-4 py-6 space-y-8"
+    >
+      {/* Hero Section */}
+      <HeroSection />
+      
+      {/* Statistics */}
+      <StatsSection />
+      
+      {/* Categories */}
+      <section>
+        <motion.h2 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-2xl font-bold mb-6 text-gradient"
+        >
+          دسته‌بندی‌ها
+        </motion.h2>
+        <CategoryGrid />
+      </section>
+      
+      {/* Featured Apps */}
+      <section>
+        <motion.h2 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="text-2xl font-bold mb-6"
+        >
+          🔥 داغ‌ترین‌های امروز
+        </motion.h2>
+        <FeaturedApps />
+      </section>
+      
+      {/* Welcome Message for Telegram Users */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ delay: 0.3 }}
+        className="glass-card p-6 text-center"
+      >
+        <h3 className="text-xl font-bold mb-2">به پرشین مینی‌اپ سنتر خوش آمدید!</h3>
+        <p className="text-text-secondary mb-4">
+          اولین مارکت‌پلیس جامع مینی‌اپ‌های فارسی در تلگرام
+        </p>
+        <div className="flex justify-center space-x-reverse space-x-4">
+          <div className="text-center">
+            <div className="text-2xl font-bold text-persian-blue">500+</div>
+            <div className="text-sm text-text-secondary">مینی‌اپ</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-persian-pink">10K+</div>
+            <div className="text-sm text-text-secondary">کاربر فعال</div>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold text-saffron">4.8</div>
+            <div className="text-sm text-text-secondary">امتیاز میانگین</div>
+          </div>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+};

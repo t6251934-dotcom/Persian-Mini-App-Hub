@@ -1,0 +1,68 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'react-hot-toast';
+import { motion } from 'framer-motion';
+
+// Pages
+import { Home } from './pages/Home';
+import { Explore } from './pages/Explore';
+import { AppDetail } from './pages/AppDetail';
+import { Wallet } from './pages/Wallet';
+import { Profile } from './pages/Profile';
+
+// Layout Components
+import { Header } from './components/layout/Header';
+import { Navigation } from './components/layout/Navigation';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      cacheTime: 1000 * 60 * 10, // 10 minutes
+    },
+  },
+});
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="min-h-screen bg-bg-primary text-white font-persian"
+        >
+          <Header />
+          
+          <main className="pb-20 pt-16">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/explore" element={<Explore />} />
+              <Route path="/app/:id" element={<AppDetail />} />
+              <Route path="/wallet" element={<Wallet />} />
+              <Route path="/profile" element={<Profile />} />
+            </Routes>
+          </main>
+          
+          <Navigation />
+          
+          <Toaster 
+            position="top-center"
+            toastOptions={{
+              duration: 3000,
+              style: {
+                background: '#1E1E1E',
+                color: '#fff',
+                border: '1px solid rgba(255,255,255,0.1)',
+                borderRadius: '12px',
+              },
+            }}
+          />
+        </motion.div>
+      </Router>
+    </QueryClientProvider>
+  );
+}
+
+export default App;

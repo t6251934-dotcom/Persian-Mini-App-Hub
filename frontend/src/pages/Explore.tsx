@@ -1,0 +1,205 @@
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Search, Filter, Grid3X3, List } from 'lucide-react';
+
+export const Explore: React.FC = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+
+  const categories = [
+    { id: 'all', name: 'همه', count: 500 },
+    { id: 'ecommerce', name: 'خرید و فروش', count: 120 },
+    { id: 'finance', name: 'خدمات مالی', count: 45 },
+    { id: 'entertainment', name: 'سرگرمی', count: 89 },
+    { id: 'education', name: 'آموزشی', count: 67 },
+    { id: 'utilities', name: 'ابزارها', count: 156 },
+    { id: 'news', name: 'اخبار', count: 23 },
+  ];
+
+  const apps = [
+    {
+      id: 1,
+      name: 'فروشگاه آنلاین پرشین',
+      description: 'بهترین محصولات ایرانی با تخفیف‌های ویژه',
+      category: 'ecommerce',
+      rating: 4.8,
+      downloads: 15600,
+      image: '🛍️',
+      price: 'رایگان',
+      featured: true
+    },
+    {
+      id: 2,
+      name: 'کیف پول دیجیتال',
+      description: 'مدیریت امن دارایی‌های دیجیتال شما',
+      category: 'finance',
+      rating: 4.9,
+      downloads: 8900,
+      image: '💰',
+      price: 'رایگان',
+      featured: false
+    },
+    {
+      id: 3,
+      name: 'بازی پازل فارسی',
+      description: 'بازی جذاب پازل با کلمات فارسی',
+      category: 'entertainment',
+      rating: 4.6,
+      downloads: 23400,
+      image: '🎮',
+      price: '5 Stars',
+      featured: true
+    },
+    {
+      id: 4,
+      name: 'آموزش زبان انگلیسی',
+      description: 'یادگیری زبان انگلیسی به روش ساده',
+      category: 'education',
+      rating: 4.7,
+      downloads: 12300,
+      image: '📚',
+      price: '10 Stars',
+      featured: false
+    },
+  ];
+
+  const filteredApps = apps.filter(app => {
+    const matchesSearch = app.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         app.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesCategory = selectedCategory === 'all' || app.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="container mx-auto px-4 py-6"
+    >
+      {/* Search Bar */}
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        className="glass-card p-4 mb-6"
+      >
+        <div className="relative">
+          <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-text-secondary w-5 h-5" />
+          <input
+            type="text"
+            placeholder="جستجو در مینی‌اپ‌ها..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full bg-transparent border border-white/20 rounded-xl px-12 py-3 text-white placeholder-text-secondary focus:outline-none focus:border-persian-blue"
+          />
+          <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-text-secondary w-5 h-5" />
+        </div>
+      </motion.div>
+
+      {/* Categories */}
+      <motion.div
+        initial={{ x: -20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        className="mb-6"
+      >
+        <h2 className="text-xl font-bold mb-4">دسته‌بندی‌ها</h2>
+        <div className="flex overflow-x-auto space-x-reverse space-x-3 pb-2">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => setSelectedCategory(category.id)}
+              className={`flex-shrink-0 px-4 py-2 rounded-full border transition-all ${
+                selectedCategory === category.id
+                  ? 'bg-persian-blue border-persian-blue text-white'
+                  : 'border-white/20 text-text-secondary hover:border-persian-blue/50'
+              }`}
+            >
+              {category.name} ({category.count})
+            </button>
+          ))}
+        </div>
+      </motion.div>
+
+      {/* View Toggle */}
+      <div className="flex justify-between items-center mb-6">
+        <h3 className="text-lg font-semibold">
+          {filteredApps.length} مینی‌اپ یافت شد
+        </h3>
+        <div className="flex space-x-reverse space-x-2">
+          <button
+            onClick={() => setViewMode('grid')}
+            className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-persian-blue' : 'bg-white/10'}`}
+          >
+            <Grid3X3 className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => setViewMode('list')}
+            className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-persian-blue' : 'bg-white/10'}`}
+          >
+            <List className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Apps Grid/List */}
+      <motion.div
+        layout
+        className={viewMode === 'grid' ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}
+      >
+        {filteredApps.map((app) => (
+          <motion.div
+            key={app.id}
+            layout
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            whileHover={{ scale: 1.02 }}
+            className={`glass-card p-6 cursor-pointer hover:border-persian-blue/50 transition-all ${
+              viewMode === 'list' ? 'flex items-center space-x-reverse space-x-4' : ''
+            }`}
+          >
+            <div className={`text-4xl mb-3 ${viewMode === 'list' ? 'mb-0' : ''}`}>
+              {app.image}
+            </div>
+            <div className="flex-1">
+              <div className="flex justify-between items-start mb-2">
+                <h3 className="font-bold text-lg">{app.name}</h3>
+                {app.featured && (
+                  <span className="bg-saffron text-black text-xs px-2 py-1 rounded-full">
+                    ویژه
+                  </span>
+                )}
+              </div>
+              <p className="text-text-secondary text-sm mb-4">{app.description}</p>
+              <div className="flex justify-between items-center">
+                <div className="flex items-center space-x-reverse space-x-2">
+                  <div className="flex items-center">
+                    <span className="text-saffron">⭐</span>
+                    <span className="text-sm mr-1">{app.rating}</span>
+                  </div>
+                  <div className="text-text-secondary text-sm">
+                    {app.downloads.toLocaleString()} نصب
+                  </div>
+                </div>
+                <div className="text-persian-blue font-semibold">
+                  {app.price}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {filteredApps.length === 0 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center py-12"
+        >
+          <div className="text-6xl mb-4">🔍</div>
+          <h3 className="text-xl font-bold mb-2">هیچ مینی‌اپی یافت نشد</h3>
+          <p className="text-text-secondary">لطفاً کلمات کلیدی دیگری امتحان کنید</p>
+        </motion.div>
+      )}
+    </motion.div>
+  );
+};

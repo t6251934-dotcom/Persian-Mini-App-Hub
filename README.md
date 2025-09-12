@@ -125,15 +125,58 @@ Detailed documentation is available in the `docs/` directory:
 - **Challenges**: Community-driven competitions
 - **Leaderboards**: Top contributors and developers
 
+## 🚀 Quick Start & Deployment
+
+### **Instant Preview** 
+**Open `demo.html` in your browser right now!** 👈
+
+### **Deploy to GitHub & Vercel (5 minutes)**
+
+**Windows users:**
+```batch
+# Double-click deploy.bat and follow the prompts
+./deploy.bat
+```
+
+**Mac/Linux users:**
+```bash
+# Run the deployment script
+chmod +x deploy.sh
+./deploy.sh
+```
+
+**Manual deployment:**
+1. Create new GitHub repository
+2. Upload all files
+3. Import to Vercel → Auto-deploy! ✅
+
+### **Development Setup**
+```bash
+# Install dependencies
+cd frontend
+npm install
+
+# Start development server
+npm run dev
+```
+
 ## 🚧 Development Status
 
-**Current Phase**: Planning & Architecture Design
+**Current Phase**: ✅ **MVP Ready for Deployment**
+
+**Completed Features**:
+- ✅ Complete UI/UX Design
+- ✅ Responsive Layout
+- ✅ Persian RTL Support
+- ✅ Glassmorphism Design System
+- ✅ Telegram Mini-App Integration
+- ✅ Auto-Deployment Setup
 
 **Next Milestones**:
-- [ ] MVP Development (2 months)
-- [ ] Token Economy Implementation (1.5 months)
-- [ ] Developer Portal (1.5 months)
-- [ ] Full Launch (6 months total)
+- [ ] Backend API Development (2 weeks)
+- [ ] Database Integration (1 week)
+- [ ] TON Blockchain Integration (3 weeks)
+- [ ] Advanced Features (1 month)
 
 ## 🤝 Contributing
 

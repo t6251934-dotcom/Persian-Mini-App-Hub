@@ -1,0 +1,39 @@
+{
+  "name": "persian-miniapp-center",
+  "version": "1.0.0",
+  "description": "Persian Mini-App Center - Telegram Super App Marketplace",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "npm run build:frontend && npm run build:backend",
+    "test": "npm run test:frontend && npm run test:backend",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "workspaces": [
+    "frontend",
+    "backend",
+    "blockchain",
+    "ai-agent"
+  ],
+  "devDependencies": {
+    "concurrently": "^7.6.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/persian-miniapp-center"
+  },
+  "keywords": [
+    "telegram",
+    "mini-app",
+    "persian",
+    "blockchain",
+    "ton",
+    "marketplace"
+  ],
+  "author": "Persian Mini-App Center Team",
+  "license": "MIT"
+}

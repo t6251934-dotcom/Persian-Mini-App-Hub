@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Vazir', 'Tahoma', sans-serif;
+    background: #121212;
+    color: #ffffff;
+    direction: rtl;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-glass bg-white/10 border border-white/20 rounded-2xl;
+  }
+  
+  .btn-primary {
+    @apply bg-persian-blue hover:bg-persian-blue/90 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-persian-pink hover:bg-persian-pink/90 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  }
+  
+  .btn-glass {
+    @apply glass-card hover:bg-white/20 text-white px-6 py-3 rounded-xl font-medium transition-all duration-200;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-persian-blue to-persian-pink bg-clip-text text-transparent;
+  }
+}

@@ -1,0 +1,57 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Bell, Search, User } from 'lucide-react';
+
+export const Header: React.FC = () => {
+  return (
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10"
+    >
+      <div className="container mx-auto px-4 py-3">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center space-x-reverse space-x-2"
+          >
+            <div className="text-2xl">💎</div>
+            <div>
+              <h1 className="text-lg font-bold text-gradient">پرشین مینی‌اپ</h1>
+              <p className="text-xs text-text-secondary">مارکت‌پلیس</p>
+            </div>
+          </motion.div>
+
+          {/* Actions */}
+          <div className="flex items-center space-x-reverse space-x-3">
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 hover:bg-white/10 rounded-lg transition-colors relative"
+            >
+              <Bell className="w-5 h-5" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-persian-pink rounded-full text-xs"></span>
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+            >
+              <Search className="w-5 h-5" />
+            </motion.button>
+            
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-2 hover:bg-white/10 rounded-lg transition-colors"
+            >
+              <User className="w-5 h-5" />
+            </motion.button>
+          </div>
+        </div>
+      </div>
+    </motion.header>
+  );
+};
