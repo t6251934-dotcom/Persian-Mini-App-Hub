@@ -1,4 +1,6 @@
 {
+  "version": 2,
+  "name": "persian-miniapp-hub",
   "builds": [
     {
       "src": "frontend/package.json",
@@ -10,8 +12,14 @@
   ],
   "routes": [
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/frontend/index.html"
+      "headers": {
+        "cache-control": "s-maxage=0"
+      },
+      "dest": "/index.html"
     }
   ]
 }
