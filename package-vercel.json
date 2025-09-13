@@ -1,0 +1,18 @@
+{
+  "name": "persian-miniapp-hub-deploy",
+  "version": "1.0.0",
+  "description": "Persian Mini-App Hub - Deployment Configuration",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "start": "cd frontend && npm run preview"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/t6251934-dotcom/Persian-Mini-App-Hub.git"
+  },
+  "license": "MIT"
+}
