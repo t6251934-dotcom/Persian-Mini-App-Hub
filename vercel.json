@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "name": "persian-miniapp-hub",
   "buildCommand": "cd frontend && npm run build",
   "outputDirectory": "frontend/dist",
   "installCommand": "cd frontend && npm install",
