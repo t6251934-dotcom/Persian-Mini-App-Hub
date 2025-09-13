@@ -23,7 +23,7 @@ services:
       - "8000:8000"
     environment:
       - NODE_ENV=development
-      - DATABASE_URL=postgresql://postgres:password@postgres:5432/persian_miniapp
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/persian_miniapp_hub
       - REDIS_URL=redis://redis:6379
       - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
       - JWT_SECRET=${JWT_SECRET}
@@ -40,7 +40,7 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_DB: persian_miniapp
+      POSTGRES_DB: persian_miniapp_hub
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     volumes:
@@ -75,7 +75,7 @@ services:
       - "5000:5000"
     environment:
       - FLASK_ENV=development
-      - DATABASE_URL=postgresql://postgres:password@postgres:5432/persian_miniapp
+      - DATABASE_URL=postgresql://postgres:password@postgres:5432/persian_miniapp_hub_hub
     volumes:
       - ./ai-agent:/app
     depends_on:

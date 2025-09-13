@@ -1,8 +1,8 @@
-# Persian Mini-App Center (پرشین مینی‌اپ سنتر)
+# Persian Mini-App Hub (پرشین مینی‌اپ هاب)
 
 ## 🌟 Project Overview
 
-Persian Mini-App Center is a comprehensive Telegram-based super app marketplace designed specifically for the Persian-speaking ecosystem. This platform serves as the "Google Play Store" for Telegram, featuring mini-apps, bots, channels, and groups with integrated blockchain technology and token economy.
+Persian Mini-App Hub is a comprehensive Telegram-based super app marketplace designed specifically for the Persian-speaking ecosystem. This platform serves as the "Google Play Store" for Telegram, featuring mini-apps, bots, channels, and groups with integrated blockchain technology and token economy.
 
 ## 🎯 Vision
 
@@ -11,7 +11,7 @@ To create the ultimate Persian digital ecosystem within Telegram, enabling devel
 ## 📋 Project Structure
 
 ```
-persian-mini-app-center/
+persian-mini-app-hub/
 ├── docs/                          # Comprehensive documentation
 │   ├── 01-technical-architecture.md
 │   ├── 02-ux-ui-design.md
@@ -185,12 +185,12 @@ We welcome contributions from developers, designers, and the Persian community. 
 ## 📞 Contact
 
 - **Project Lead**: [Your Name]
-- **Email**: contact@persian-miniapp.center
-- **Telegram**: @PersianMiniAppCenter
-- **Website**: https://persian-miniapp.center
+- **Email**: contact@persian-miniapp.hub
+- **Telegram**: @PersianMiniAppHub
+- **Website**: https://persian-miniapp.hub
 
 ---
 
 **"Building the Future of Persian Digital Economy on Telegram"**
 
-🔗 **Links**: [Website](https://persian-miniapp.center) | [Docs](docs/) | [Telegram](https://t.me/PersianMiniAppCenter)"# persianmnapp" 
+🔗 **Links**: [Website](https://persian-miniapp.hub) | [Docs](docs/) | [Telegram](https://t.me/PersianMiniAppHub)"# persianmnapp" 
