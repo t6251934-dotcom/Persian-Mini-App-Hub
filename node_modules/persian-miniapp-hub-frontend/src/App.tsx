@@ -31,11 +31,12 @@ function App() {
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="min-h-screen bg-bg-primary text-white font-persian relative overflow-x-hidden"
+          className="min-h-screen bg-bg-primary text-white font-persian relative overflow-x-hidden w-full"
+          dir="rtl"
         >
           <Header />
           
-          <main className="pb-20 pt-16">
+          <main className="pb-20 pt-16 w-full">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/explore" element={<Explore />} />

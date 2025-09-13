@@ -9,8 +9,8 @@ export const Header: React.FC = () => {
       animate={{ y: 0, opacity: 1 }}
       className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex items-center justify-between">
+      <div className="w-full px-4 py-3">
+        <div className="flex items-center justify-between w-full">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}

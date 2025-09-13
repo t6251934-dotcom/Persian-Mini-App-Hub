@@ -61,11 +61,11 @@ export const HeroSection: React.FC = () => {
       {/* Featured Mini Apps Carousel */}
       <div>
         <h3 className="text-lg font-semibold mb-4 flex items-center">
-          <TrendingUp className="w-5 h-5 text-saffron ml-2" />
+          <TrendingUp className="w-5 h-5 text-saffron mr-2" />
           مینی‌اپ‌های منتخب امروز
         </h3>
         
-        <div className="flex space-x-reverse space-x-4 overflow-x-auto pb-2">
+        <div className="flex gap-4 overflow-x-auto pb-2 w-full">
           {featuredApps.map((app, index) => (
             <motion.div
               key={app.id}
@@ -83,7 +83,7 @@ export const HeroSection: React.FC = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
                   <Star className="w-4 h-4 text-saffron fill-current" />
-                  <span className="text-sm mr-1">4.8</span>
+                  <span className="text-sm ml-1">4.8</span>
                 </div>
                 <button className="text-persian-blue text-sm font-medium">
                   مشاهده →

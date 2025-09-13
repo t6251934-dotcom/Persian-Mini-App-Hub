@@ -39,6 +39,10 @@ export default {
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },
+      spacing: {
+        'safe-top': 'env(safe-area-inset-top)',
+        'safe-bottom': 'env(safe-area-inset-bottom)',
+      },
     },
   },
   plugins: [],

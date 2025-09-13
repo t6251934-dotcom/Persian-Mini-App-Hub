@@ -19,8 +19,8 @@ export const Navigation: React.FC = () => {
       animate={{ y: 0, opacity: 1 }}
       className="fixed bottom-0 left-0 right-0 z-50 glass-card border-t border-white/10"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-around py-3">
+      <div className="w-full px-4">
+        <div className="flex items-center justify-around py-3 w-full">
           {navItems.map(({ path, icon: Icon, label }) => {
             const isActive = location.pathname === path;
             
